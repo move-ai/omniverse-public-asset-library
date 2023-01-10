@@ -1,0 +1,52 @@
+[package]
+# Semantic Versionning is used: https://semver.org/
+version = "1.0.0"
+
+# The title and description fields are primarily for displaying extension info in UI
+title = "Move.ai Public Asset Library"
+description="Move.ai Public Asset Library"
+
+# Path (relative to the root) or content of readme markdown file for UI.
+readme  = "docs/README.md"
+icon = "data/icon.jpeg"
+preview_image = "data/preview.png"
+
+# URL of the extension source repository.
+repository = ""
+
+# One of categories for UI.
+category = "Animation"
+
+# Keywords for the extension
+keywords = ["kit", "animation", "move"]
+
+feature = true
+
+# Use omni.ui to build simple UI
+[dependencies]
+"omni.kit.uiapp" = {}
+"omni.kit.asset_converter" = {}
+
+# Main python module this extension provides, it will be publicly available as "import moveai.assets".
+[[python.module]]
+name = "moveai.assets.extension"
+
+[python.pipapi]
+# # List of additional directories with pip achives to be passed into pip using ``--find-links`` arg.
+# # Relative paths are relative to extension root. Tokens can be used.
+# archiveDirs = ["path/to/pip_archive"]
+
+# Commands passed to pip install before extension gets enabled. Can also contain flags, like `--upgrade`, `--no--index`, etc.
+# Refer to: https://pip.pypa.io/en/stable/reference/pip_install/#requirements-file-format
+requirements = [
+    "opencv-python"
+]
+
+# Allow going to online index if package can't be found locally (not recommended)
+use_online_index = true
+
+# Use this to specify a list of additional repositories if your pip package is hosted somewhere other
+# than the default repo(s) configured in pip. Will pass these to pip with "--extra-index-url" argument
+# repositories = ["https://my.additional.pip_repo.com/"]
+
+# [settings]
